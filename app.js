@@ -5,6 +5,7 @@
 
 
 const seattle = {
+  city: "Seattle",
   minCustomers: 23,
   maxCustomers: 65,
   avgCookies: 6.3,
@@ -15,6 +16,7 @@ const seattle = {
 };
 
 const tokyo = {
+  city: "Tokyo",
   minCustomers: 3,
   maxCustomers: 24,
   avgCookies: 1.2,
@@ -25,8 +27,9 @@ const tokyo = {
 }
 
 const dubai = {
+  city: "Dubai",
   minCustomers: 11,
-  maxCustomer: 38,
+  maxCustomers: 38,
   avgCookies: 3.7,
   // customers: generateCustomers(11, 38)
   generateCustomers(minCustomers, maxCustomers) {
@@ -35,8 +38,9 @@ const dubai = {
 }
 
 const paris = {
+  city: "Paris",
   minCustomers: 20,
-  maxCustomer: 38,
+  maxCustomers: 38,
   avgCookies: 2.3,
   // customers: generateCustomers(20, 38)
   generateCustomers(minCustomers, maxCustomers) {
@@ -45,8 +49,9 @@ const paris = {
 }
 
 const lima = {
+  city: "Lima",
   minCustomers: 2,
-  maxCustomer: 16,
+  maxCustomers: 16,
   avgCookies: 4.6,
   // customers: generateCustomers(2, 16)
   generateCustomers(minCustomers, maxCustomers) {
@@ -54,7 +59,30 @@ const lima = {
   }
 }
 
+
+const amountSoldSeattle = [];
+const amountSoldTokyo = [];
+const amountSoldDubai = [];
+const amountSoldParis = [];
+const amountSoldLima = [];
 for (i = 0; i < 14; i++) {
-  let amountSold = Math.floor(seattle.generateCustomers() * seattle.avgCookies);
-  console.log(amountSold);
+
+  amountSoldSeattle.push(Math.floor(seattle.generateCustomers() * seattle.avgCookies));
+  amountSoldTokyo.push(Math.floor(tokyo.generateCustomers() * tokyo.avgCookies));
+  amountSoldDubai.push(Math.floor(dubai.generateCustomers() * dubai.avgCookies));
+  amountSoldParis.push(Math.floor(paris.generateCustomers() * paris.avgCookies));
+  amountSoldLima.push(Math.floor(lima.generateCustomers() * lima.avgCookies));
+  
 }
+
+seattle.amountSoldPerHour = amountSoldSeattle;
+tokyo.amountSoldPerHour = amountSoldTokyo;
+dubai.amountSoldPerHour = amountSoldDubai;
+paris.amountSoldPerHour = amountSoldParis;
+lima.amountSoldPerHour = amountSoldLima;
+
+console.log(seattle);
+console.log(tokyo);
+console.log(dubai);
+console.log(paris);
+console.log(lima);
