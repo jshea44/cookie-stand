@@ -1,0 +1,11 @@
+#sales-table {
+  border: thin solid black;
+}
+
+#thead {
+  border: thin solid blue;
+}
+
+.tdclass {
+  border: thin solid red; 
+}

@@ -20,21 +20,56 @@ const paris = new Store('Paris', 20, 38, 2.3);
 const lima = new Store('Lima', 2, 16, 4.6);
 
 
-// finding hourly cookies sold per store && appending them to their respective objects && finding the grand total
-const times = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am:', '12pm:', '1pm:', '2pm:', '3pm:', '4pm:', '5pm:', '6pm:', '7pm:'];
+// Global data
+const times = ['6:00am:', '7:00am:', '8:00am:', '9:00am:', '10:00am:', '11:00am:', '12:00pm:', '1:00pm:', '2:00pm:', '3:00pm:', '4:00pm:', '5:00pm:', '6:00pm:', '7:00pm:', 'Daily Location Total'];
 const locations = [seattle, tokyo, dubai, paris, lima];
 
+// Create and append header elements
+
+function createHeader(arr) {
+  let table = document.getElementById('sales-table');
+  let thead = document.createElement('thead');
+  table.appendChild(thead);
+  let tr = document.createElement('tr');
+  thead.appendChild(tr);
+
+  for (let i = 0; i < arr.length; i++) {
+    let th = document.createElement('th');
+    th.textContent = arr[i];
+    console.log(th.textContent);
+    tr.appendChild(th);
+  }
+}
+
+createHeader(times);
+
+
+
+// finding hourly cookies sold per store && appending them to their respective objects && appending on page
+
 function getSales(arr) {
+  let table = document.getElementById('sales-table');
+  let tbody = document.createElement('tbody');
+  table.appendChild(tbody);
+
   for (let i = 0; i < arr.length; i++) {
     let storeSales = [];
-    for (let j = 0; j < times.length; j++) {
+    let tr = document.createElement('tr');
+    tbody.appendChild(tr);
+    for (let j = 0; j < times.length - 1; j++) {
       storeSales.push(Math.floor(arr[i].generateCustomers() * arr[i].avgCookies));
-
+      let td = document.createElement('td');
+      td.textContent = storeSales[j];
+      tr.appendChild(td);
+      td.setAttribute('class', 'tdclass');
     }
     arr[i].amountSoldPerHour = storeSales;
   }
+
 }
+
 getSales(locations);
+
 
 
 
