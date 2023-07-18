@@ -1,55 +1,26 @@
 'use-strict';
 
-// create object literals for each store
-const seattle = {
-  city: "Seattle",
-  minCustomers: 23,
-  maxCustomers: 65,
-  avgCookies: 6.3,
-  generateCustomers(minCustomers, maxCustomers) {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-  }
-};
-
-const tokyo = {
-  city: "Tokyo",
-  minCustomers: 3,
-  maxCustomers: 24,
-  avgCookies: 1.2,
-  generateCustomers(minCustomers, maxCustomers) {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-  }
+// Create a constructor function && prototype function.
+function Store(city, minCustomers, maxCustomers, avgCookies) {
+  this.city = city;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.avgCookies = avgCookies;
+  this.customers = this.generateCustomers();
 }
 
-const dubai = {
-  city: "Dubai",
-  minCustomers: 11,
-  maxCustomers: 38,
-  avgCookies: 3.7,
-  generateCustomers(minCustomers, maxCustomers) {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-  }
+Store.prototype.generateCustomers = function (minCustomers, maxCustomers) {
+  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
 }
 
-const paris = {
-  city: "Paris",
-  minCustomers: 20,
-  maxCustomers: 38,
-  avgCookies: 2.3,
-  generateCustomers(minCustomers, maxCustomers) {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-  }
-}
+// Create instances for each store
+const seattle = new Store('Seattle', 23, 65, 6.3);
+const tokyo = new Store('Tokyo', 3, 24, 1.2);
+const dubai = new Store('Dubai', 11, 38, 3.7);
+const paris = new Store('Paris', 20, 38, 2.3);
+const lima = new Store('Lima', 2, 16, 4.6);
 
-const lima = {
-  city: "Lima",
-  minCustomers: 2,
-  maxCustomers: 16,
-  avgCookies: 4.6,
-  generateCustomers(minCustomers, maxCustomers) {
-    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-  }
-}
+
 
 
 // finding hourly cookies sold per store && appending them to their respective objects
