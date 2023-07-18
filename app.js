@@ -1,3 +1,5 @@
+'use-strict';
+
 // create object literals for each store
 const seattle = {
   city: "Seattle",
