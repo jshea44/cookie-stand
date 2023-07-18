@@ -53,8 +53,6 @@ createHeader(times);
 function getSales(arr) {
 
   let tbody = document.getElementById('sales-table');
-  // let tbody = document.createElement('tbody');
-  // table.appendChild(tbody);
 
   for (let i = 0; i < arr.length; i++) {
     let storeSales = [];
@@ -66,6 +64,7 @@ function getSales(arr) {
         let th = document.createElement('th');
         th.textContent = arr[i].city;
         tr.appendChild(th);
+        th.setAttribute('class', 'thinBorder');
       } else {
         storeSales.push(Math.floor(arr[i].generateCustomers() * arr[i].avgCookies));
         storeSalesTotal += storeSales[j];
@@ -78,6 +77,7 @@ function getSales(arr) {
     let td = document.createElement('td');
     td.textContent = storeSalesTotal;
     tr.appendChild(td);
+    td.setAttribute('class', 'thinBorder');
     arr[i].amountSoldPerHour = storeSales;
   }
 
@@ -93,6 +93,7 @@ function getTotals(arr) {
   let th = document.createElement('th');
   th.textContent = 'Total';
   tbody.appendChild(th);
+  th.setAttribute('class', 'thinBorder');
 
   totals = [];
 
@@ -106,6 +107,7 @@ function getTotals(arr) {
     let td = document.createElement('td');
     td.textContent = totalHourSales;
     tbody.appendChild(td);
+    td.setAttribute('class', 'thinBorder');
    
   }
   for (let i = 0; i < totals.length; i++) {
@@ -114,6 +116,7 @@ function getTotals(arr) {
   let td = document.createElement('td');
   td.textContent = grandTotal;
   tbody.appendChild(td);
+  td.setAttribute('class', 'thinBorder');
 
 }
 getTotals(locations);
