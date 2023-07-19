@@ -101,9 +101,10 @@ function getTotals(arr) {
     totalHourSales = 0;
     for (let j = 0; j < arr.length; j++) {
       totalHourSales += arr[j].amountSoldPerHour[i];
-      totals.push(totalHourSales);
-
+      
     }
+    totals.push(totalHourSales);
+    
     let td = document.createElement('td');
     td.textContent = totalHourSales;
     tbody.appendChild(td);
@@ -112,6 +113,7 @@ function getTotals(arr) {
   }
   for (let i = 0; i < totals.length; i++) {
     grandTotal += totals[i];
+    console.log(grandTotal);
   }
   let td = document.createElement('td');
   td.textContent = grandTotal;
