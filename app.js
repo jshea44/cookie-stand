@@ -123,3 +123,6 @@ function getTotals(arr) {
 }
 getTotals(locations);
 
+
+
+

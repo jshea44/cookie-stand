@@ -64,3 +64,46 @@ h1 {
 p {
   margin: 5px 0;
 }
+
+.image-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.image-wrapper {
+  display: flex;
+  width: 1000%;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.image-wrapper {
+  display: inline-block;
+}
+
+.image-wrapper img {
+  height: 200px; 
+  width: auto; 
+  margin-right: 10px;
+}
+
+.image-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.image-scroll-container {
+  scrollbar-width: none;
+}
