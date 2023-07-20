@@ -1,6 +1,11 @@
 
-#thead {
+/* #thead {
   border: thin solid blue;
+} */
+
+#store-form {
+  width: 400px;
+  margin: 30px;
 }
 
 .thinBorder {
