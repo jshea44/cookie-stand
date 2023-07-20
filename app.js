@@ -140,7 +140,6 @@ function handleSubmit(event) {
   let storeName = event.target.storeName.value;
   let storeMinCust = Number(event.target.storeMinCust.value);
   let storeMaxCust = Number(event.target.storeMaxCust.value);
-  console.log('works to here');
   let storeAvgCust = Number(event.target.storeAvgCookies.value);
 
   let newStore = new Store(storeName, storeMinCust, storeMaxCust, storeAvgCust);
@@ -156,6 +155,5 @@ function handleSubmit(event) {
 
 formElement = document.addEventListener('submit', handleSubmit);
 
-console.log(locations);
 
 
