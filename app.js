@@ -85,14 +85,18 @@ function getSales(arr) {
 getSales(locations);
 
 
-// Create function to find totals && append
+// Create function to find totals && append (footer)
 function getTotals(arr) {
-
+  console.log(arr);
   grandTotal = 0;
-  let tbody = document.getElementById('sales-table');
+  let wholeTable = document.getElementById('sales-table');
+  let footer = document.createElement('tfoot');
+  footer.setAttribute('id', 'tFoot');
+  wholeTable.appendChild(footer);
+  let tfoot = document.getElementById('tFoot');
   let th = document.createElement('th');
   th.textContent = 'Total';
-  tbody.appendChild(th);
+  tfoot.appendChild(th);
   th.setAttribute('class', 'thinBorder');
 
   totals = [];
@@ -107,7 +111,7 @@ function getTotals(arr) {
     
     let td = document.createElement('td');
     td.textContent = totalHourSales;
-    tbody.appendChild(td);
+    tfoot.appendChild(td);
     td.setAttribute('class', 'thinBorder');
    
   }
@@ -117,7 +121,7 @@ function getTotals(arr) {
   }
   let td = document.createElement('td');
   td.textContent = grandTotal;
-  tbody.appendChild(td);
+  tfoot.appendChild(td);
   td.setAttribute('class', 'thinBorder');
 
 }
@@ -125,6 +129,33 @@ getTotals(locations);
 
 
 
+//adding form and appending created store to table
+let formElement = document.getElementById('store-form');
 
+
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let storeName = event.target.storeName.value;
+  let storeMinCust = Number(event.target.storeMinCust.value);
+  let storeMaxCust = Number(event.target.storeMaxCust.value);
+  console.log('works to here');
+  let storeAvgCust = Number(event.target.storeAvgCookies.value);
+
+  let newStore = new Store(storeName, storeMinCust, storeMaxCust, storeAvgCust);
+  locations.push(newStore);
+  
+  getSales([newStore]);
+
+  totalsRow = document.getElementById('tFoot');
+  totalsRow.remove();
+  getTotals(locations);
+}
+
+
+formElement = document.addEventListener('submit', handleSubmit);
+
+console.log(locations);
 
 
