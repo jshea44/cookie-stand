@@ -44,7 +44,6 @@ function createHeader(arr) {
       tr.appendChild(th);
     }
   }
-
 }
 createHeader(times);
 
@@ -128,11 +127,8 @@ function getTotals(arr) {
 getTotals(locations);
 
 
-
 //adding form and appending created store to table
 let formElement = document.getElementById('store-form');
-
-
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -151,7 +147,6 @@ function handleSubmit(event) {
   totalsRow.remove();
   getTotals(locations);
 }
-
 
 formElement = document.addEventListener('submit', handleSubmit);
 
